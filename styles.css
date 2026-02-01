@@ -1,0 +1,372 @@
+/* Reset básico */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #08CB00 #020502;
+}
+
+
+body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.6;
+    background: radial-gradient(circle, #0a1a05 0%, #020502 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: transparent;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(0.6rem, 1vw, 0.8rem);
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 2rem;
+
+}
+
+header i {
+    font-size: 1.2rem;
+    color: #08CB00;
+    vertical-align: middle;
+    padding: 0.2rem;
+
+}
+
+main {
+    flex-grow: 1;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Seção sorteador */
+.sorteador {
+    background-color: rgba(10, 20, 10, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Títulos com Bebas Neue */
+
+h1#titulo-secao {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #FFFFFF;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+}
+
+/* Parágrafo descrição */
+.descricao {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #CBCBCB;
+    margin-bottom: 2rem;
+}
+
+/* Display do resultado */
+#display-resultado {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 2.5rem auto;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    /* ARGOLA 1 (A principal) */
+    border: 2px solid #08CB00;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    /* O BRILHO (Glow) */
+    box-shadow:
+        0 0 20px rgba(8, 203, 0, 0.4),
+        inset 0 0 15px rgba(8, 203, 0, 0.3);
+}
+
+
+
+#display-resultado::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 50%;
+    border: 1px solid rgba(8, 203, 0, 0.15);
+}
+
+#display-resultado::after {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    border-radius: 50%;
+    border: 1px solid rgba(8, 203, 0, 0.05);
+}
+
+#display-resultado #numero-sorteado {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7rem;
+    color: #FFFFFF;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(43, 197, 58, 0.4);
+    cursor: pointer;
+}
+
+#display-resultado p {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #08CB00;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+/* Formulário */
+form#form-sorteio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    outline: none;
+}
+
+
+
+form#form-sorteio label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #888;
+
+}
+
+form#form-sorteio input {
+    font-family: 'Bebas Neue', sans-serif;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    background-color: #000000;
+    color: #e0e0e0;
+    transition: background-color 0.3s ease;
+
+}
+
+.campo:focus-within label {
+    color: #08CB00;
+    text-shadow: 0 0 5px rgba(8, 203, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+form#form-sorteio input:focus {
+    outline: none;
+    border-color: #08CB00;
+    background-color: #000;
+    box-shadow: 0 0 10px rgba(8, 203, 0, 0.3);
+    color: #08CB00;
+}
+
+/* Botão sortear */
+
+#btn-sortear {
+    width: 100%;
+    grid-column: span 2;
+    margin-top: 0.5rem;
+    padding: 18px;
+    background-color: #00FF00;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#btn-sortear:hover {
+    background-color: #08CB00;
+    transform: scale(1.02);
+    color: #17261a;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
+}
+
+/* Histórico */
+#historico {
+    border-radius: 12px;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#titulo-historico {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+/* Deixar o histórico em bolinhas (opcional) */
+#lista-historico {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+#lista-historico li {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #aaa;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: transparent;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Links e meu nome */
+footer a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #00FF00;
+    transform: translateY(-2px);
+}
+
+.github-icon {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+
+/* Ajustes para Celulares Pequenos */
+@media (max-width: 480px) {
+    main {
+        padding: 1rem;
+        /* Reduz o respiro lateral */
+    }
+
+    .sorteador {
+        padding: 1.5rem;
+        /* Reduz o espaço interno do card */
+    }
+
+    h1#titulo-secao {
+        font-size: 2.2rem;
+        /* Título menor para não quebrar linha feio */
+    }
+
+    #display-resultado {
+        width: 220px;
+        /* Círculo um pouco menor */
+        height: 220px;
+    }
+
+    #display-resultado #numero-sorteado {
+        font-size: 5rem;
+        /* Número menor para caber no círculo */
+    }
+
+    form#form-sorteio {
+        grid-template-columns: 1fr;
+        /* Coloca Mínimo em cima de Máximo no celular */
+    }
+
+    #btn-sortear {
+        grid-column: span 1;
+        /* No celular ele ocupa apenas a coluna única */
+    }
+}
+
+/* 1. largura da barra  */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* 2. "fundo" da barra */
+::-webkit-scrollbar-track {
+    background: #020502;
+}
+
+/* 3. A "alça" da barra */
+::-webkit-scrollbar-thumb {
+    background: #08CB00;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(8, 203, 0, 0.5);
+    border: 2px solid #020502;
+}
+
+/* 4. Efeito ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: #00FF00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+}
